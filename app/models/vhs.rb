@@ -1,7 +1,10 @@
 class Vhs < ActiveRecord::Base
     after_initialize :add_serial_number
 
-
+    belongs_to :movie
+    has_many :rentals
+    has_many :clients, through: :rentals
+    
     private
 
 
@@ -29,3 +32,14 @@ class Vhs < ActiveRecord::Base
         self.movie.title[0..3].gsub(/s/, "").upcase + "-"
     end
 end
+
+# CREATE
+
+# Vhs.hot_from_the_press - accepts arguments used to create a new instance of a Movie and a name of a genre; creates the movie, associates it with appropriate genre (if it exists, if it doesn't - creates one) and creates three instances of a Vhs associated with that Movie
+
+# READ
+
+# Vhs.most_used - prints a list of 3 vhs that have been most rented in the format: "serial number: 1111111 | title: 'movie title'
+
+# Vhs.all_genres - returns a list of all genres available at the store
+# Vhs.available_now - returns a list of all vhs currently available at the store
