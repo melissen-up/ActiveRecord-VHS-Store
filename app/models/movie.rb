@@ -4,7 +4,22 @@ class Movie < ActiveRecord::Base
 
     has_many :vhs
     has_many :rentals, through: :vhs
+
+       # Person.delete_by(id: 13)
+    # Person.delete_by(name: 'Spartacus', rating: 4)
+    # Person.delete_by("published_at < ?", 2.weeks.ago)
+
+    def report_stolen
+        binding.pry
+        # stolen_vhs_id = self.vhs.sample.id
+        # self.delete_by(id: stolen_vhs_id)
+        puts "THANK YOU FOR YOUR REPORT. WE WILL LAUNCH AN INVESTIGATION."
+    end
 end
+
+# DELETE
+
+# Movie#report_stolen - deletes a random vhs instance associated with this movie that's currently not rented out and prints information: "THANK YOU FOR YOUR REPORT. WE WILL LAUNCH AN INVESTIGATION."
 
 # READ
 
@@ -24,6 +39,3 @@ end
 
 # Movie.surprise_me - prints a recommendation for a random movie
 
-# DELETE
-
-# Movie#report_stolen - deletes a random vhs instance associated with this movie that's currently not rented out and prints information: "THANK YOU FOR YOUR REPORT. WE WILL LAUNCH AN INVESTIGATION."
