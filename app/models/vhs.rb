@@ -4,6 +4,7 @@ class Vhs < ActiveRecord::Base
 
     private
 
+
     # generates serial number based on the title
     def add_serial_number
         serial_number = serial_number_stub
