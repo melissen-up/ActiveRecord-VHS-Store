@@ -4,6 +4,10 @@ class Vhs < ActiveRecord::Base
     belongs_to :movie
     has_many :rentals
     has_many :clients, through: :rentals
+
+    def self.available_now
+        Rental.all.select{|rental| rental.current == true}
+    end
     
     private
 
