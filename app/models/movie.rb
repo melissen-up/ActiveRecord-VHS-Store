@@ -10,9 +10,8 @@ class Movie < ActiveRecord::Base
     # Person.delete_by("published_at < ?", 2.weeks.ago)
 
     def report_stolen
-        binding.pry
-        # stolen_vhs_id = self.vhs.sample.id
-        # self.delete_by(id: stolen_vhs_id)
+        # binding.pry
+        self.vhs.sample.destroy
         puts "THANK YOU FOR YOUR REPORT. WE WILL LAUNCH AN INVESTIGATION."
     end
 end
